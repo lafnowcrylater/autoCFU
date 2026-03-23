@@ -1,75 +1,45 @@
-# React + TypeScript + Vite
+# CFU Counter: User Guide
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the *S. aureus* CFU Counter! This web application is designed to help microbiology researchers and lab technicians quickly and accurately count bacterial colonies from agar plate photographs.
 
-Currently, two official plugins are available:
+## 📖 How to Use the Application
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Using the CFU Counter is simple and requires only a few steps:
 
-## React Compiler
+### 1. Upload a Plate Image
+* On the left side of the screen, locate the **"Plate Image"** upload area.
+* You can either **drag and drop** an image file directly into the dotted box, or **click** the box to browse your computer for a file.
+* A preview of your selected image will appear. *(Supported formats: PNG, JPG, TIFF)*
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+### 2. Start the Analysis
+* Once your image is selected and previewed, click the **"Start Colony Count"** button.
+* The status bar at the bottom of the screen will change to *"Running colony detection…"*. Please wait a few moments while the AI processes your image.
 
-Note: This will impact Vite dev & build performances.
+### 3. View the Results
+* When the analysis is complete, the right side of the screen (**"Results"**) will automatically update.
+* **Annotated Output:** You will see your original image with bounding boxes drawn around every detected colony. This allows you to manually audit and verify the AI's accuracy.
+* **CFU Count:** The total number of *S. aureus* Colony Forming Units detected will be displayed as a large number.
+* **Statistics:** Additional details such as the model's confidence and the processing time will be shown below the count.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 💻 Developer Information
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+This directory contains the React front-end application for the CFU Counter suite. 
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+**Built with:**
+- React 18
+- Vite
+- TypeScript
+- CSS Modules
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 🚀 Quick Start (For Developers)
+
+To launch the local development server:
+
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+For full system instructions (including how to run the required FastAPI backend), please see the **[Main Project README](../README.md)** located in the parent directory.
