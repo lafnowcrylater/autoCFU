@@ -12,11 +12,6 @@ export function ResultPanel({ result }: Props) {
 
   return (
     <div className={styles.panel}>
-      <div className={styles.annotatedWrapper}>
-        <div className={styles.sectionLabel}>Annotated Output</div>
-        <img src={imgSrc} alt="Annotated plate" className={styles.annotated} />
-      </div>
-
       <div className={styles.stats}>
         <div className={styles.statBlock}>
           <div className={styles.statLabel}>CFU Count</div>
@@ -36,6 +31,11 @@ export function ResultPanel({ result }: Props) {
             <div className={styles.statValue}>{result.processing_time_ms} ms</div>
           </div>
         )}
+      </div>
+
+      <div className={styles.annotatedWrapper}>
+        <div className={styles.sectionLabel}>Annotated Output</div>
+        <img src={imgSrc} alt="Annotated plate" className={styles.annotated} />
       </div>
     </div>
   );

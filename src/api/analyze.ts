@@ -1,7 +1,8 @@
 import axios from 'axios';
 import type { AnalysisResult } from '../types';
 
-const BASE_URL = 'http://localhost:8001';
+const BASE_URL = import.meta.env.VITE_BASE_URL || 'http://localhost:8000';
+// const BASE_URL = 'http://localhost:8000';
 
 export async function analyzeImage(file: File): Promise<AnalysisResult> {
   const formData = new FormData();

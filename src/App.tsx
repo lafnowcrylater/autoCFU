@@ -36,9 +36,9 @@ export default function App() {
       {/* Top nav */}
       <header className={styles.topbar}>
         <nav className={styles.topLinks}>
-          <span>Microbiology Lab</span>
+          <span>Automated Colony Counter</span>
           <span className={styles.divider}>|</span>
-          <span>Image Analysis Suite</span>
+          <span>Staphylococcus aureus</span>
         </nav>
       </header>
 
@@ -46,11 +46,11 @@ export default function App() {
       <div className={styles.siteHeader}>
         <div className={styles.container}>
           <div className={styles.brandRow}>
-            <h1 className={styles.brand}>CFU<span>Counter</span></h1>
-            <div className={styles.brandMeta}>
+            <h1 className={styles.brand}>Auto<span>CFU</span></h1>
+            {/* <div className={styles.brandMeta}>
               <span className={styles.tag}>RESEARCH TOOL</span>
               <span className={styles.tag}>S. AUREUS</span>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -68,9 +68,7 @@ export default function App() {
               </div>
 
               <p className={styles.intro}>
-                Upload a high-resolution agar plate photograph.
-                The system will detect and enumerate <em>S. aureus</em> colonies
-                using computer vision.
+                Upload a <em>S.aureus</em> plate photo, then click start.
               </p>
 
               <ImageUploader onFileSelect={setFile} disabled={isAnalyzing} />
@@ -80,7 +78,7 @@ export default function App() {
                 onClick={handleAnalyze}
                 disabled={!file || isAnalyzing}
               >
-                {isAnalyzing ? 'Analyzing…' : 'Start Colony Count'}
+                {isAnalyzing ? 'Analyzing…' : 'Start Analysis'}
               </button>
             </div>
 
