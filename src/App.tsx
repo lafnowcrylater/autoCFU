@@ -37,8 +37,8 @@ export default function App() {
       <header className={styles.topbar}>
         <nav className={styles.topLinks}>
           <span>Automated Colony Counter</span>
-          <span className={styles.divider}>|</span>
-          <span>Staphylococcus aureus</span>
+          {/* <span className={styles.divider}>|</span>
+          <span>Staphylococcus aureus</span> */}
         </nav>
       </header>
 
@@ -47,10 +47,10 @@ export default function App() {
         <div className={styles.container}>
           <div className={styles.brandRow}>
             <h1 className={styles.brand}>Auto<span>CFU</span></h1>
-            {/* <div className={styles.brandMeta}>
-              <span className={styles.tag}>RESEARCH TOOL</span>
-              <span className={styles.tag}>S. AUREUS</span>
-            </div> */}
+            <div className={styles.brandMeta}>
+              {/* <span className={styles.tag}>RESEARCH TOOL</span> */}
+              <span className={styles.tag}>Staphylococcus aureus</span>
+            </div>
           </div>
         </div>
       </div>
