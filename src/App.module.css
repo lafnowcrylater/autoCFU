@@ -25,6 +25,16 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .topLinks {
+    font-size: 0.55rem;
+    justify-content: center;
+    text-align: center;
+    padding: 6px var(--gutter);
+  }
 }
 
 .divider {
