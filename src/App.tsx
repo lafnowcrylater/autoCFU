@@ -36,7 +36,7 @@ export default function App() {
       {/* Top nav */}
       <header className={styles.topbar}>
         <nav className={styles.topLinks}>
-          <span>Automated Staphylococcus aureus Colony Counter</span>
+          <span className={styles.topText}>Automated Staphylococcus aureus Colony Counter</span>
           {/* <span className={styles.divider}>|</span>
           <span>Staphylococcus aureus</span> */}
         </nav>

@@ -28,13 +28,21 @@
   flex-wrap: wrap;
 }
 
+.topText {
+  font-size: 0.72rem;
+}
+
 @media (max-width: 800px) {
-  .topLinks {
+
+  /* .topLinks {
     font-size: 0.55rem;
     letter-spacing: 0.02em;
     justify-content: center;
     text-align: center;
     padding: 6px var(--gutter);
+  } */
+  .topText {
+    font-size: 0.6rem;
   }
 }
 
