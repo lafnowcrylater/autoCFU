@@ -28,7 +28,7 @@
   flex-wrap: wrap;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .topLinks {
     font-size: 0.6rem;
     justify-content: center;
