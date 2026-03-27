@@ -16,12 +16,13 @@ const STATUS_MESSAGES: Record<AppState, string> = {
 
 export function StatusBar({ state, error }: Props) {
   return (
-    <div className={`${styles.bar} ${styles[state]}`}>
-      <span className={styles.dot} />
-      <span className={styles.message}>
-        {state === 'error' && error ? error : STATUS_MESSAGES[state]}
-      </span>
-      {state === 'analyzing' && <span className={styles.spinner} />}
-    </div>
+    <footer className={`${styles.bar} ${styles[state]}`}>
+      <div className={styles.container}>
+        <span className={styles.message}>
+          {state === 'error' && error ? error : STATUS_MESSAGES[state]}
+        </span>
+        {state === 'analyzing' && <span className={styles.spinner} />}
+      </div>
+    </footer>
   );
 }

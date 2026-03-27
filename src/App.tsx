@@ -36,7 +36,7 @@ export default function App() {
       {/* Top nav */}
       <header className={styles.topbar}>
         <nav className={styles.topLinks}>
-          <span>Automated Colony Counter</span>
+          <span>Automated Staphylococcus aureus Colony Counter</span>
           {/* <span className={styles.divider}>|</span>
           <span>Staphylococcus aureus</span> */}
         </nav>
@@ -47,10 +47,10 @@ export default function App() {
         <div className={styles.container}>
           <div className={styles.brandRow}>
             <h1 className={styles.brand}>Auto<span>CFU</span></h1>
-            <div className={styles.brandMeta}>
-              {/* <span className={styles.tag}>RESEARCH TOOL</span> */}
+            {/* <div className={styles.brandMeta}>
+              <span className={styles.tag}>RESEARCH TOOL</span>
               <span className={styles.tag}>Staphylococcus aureus</span>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -67,9 +67,9 @@ export default function App() {
                 <h2 className={styles.sectionTitle}>Plate Image</h2>
               </div>
 
-              <p className={styles.intro}>
+              {/* <p className={styles.intro}>
                 Upload a <em>S.aureus</em> plate photo, then click start.
-              </p>
+              </p> */}
 
               <ImageUploader onFileSelect={setFile} disabled={isAnalyzing} />
 
@@ -103,11 +103,7 @@ export default function App() {
       </main>
 
       {/* Footer status */}
-      <footer className={styles.footer}>
-        <div className={styles.container}>
-          <StatusBar state={state} error={error} />
-        </div>
-      </footer>
+      <StatusBar state={state} error={error} />
     </div>
   );
 }

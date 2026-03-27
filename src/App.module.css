@@ -6,7 +6,7 @@
   color: var(--text-primary);
 }
 
-/* ── Top bar (mimics IEEE nav) ── */
+/* ── Top bar ── */
 .topbar {
   background: var(--topbar-bg);
   padding: 8px 0;
@@ -62,7 +62,7 @@
 }
 
 .brand span {
-  color: var(--accent);
+  color: var(--text-primary);
 }
 
 .brandMeta {
@@ -174,7 +174,4 @@
   font-size: 0.85rem;
 }
 
-/* ── Footer ── */
-.footer {
-  border-top: 1px solid var(--border);
-}
+/* ── End ── */
