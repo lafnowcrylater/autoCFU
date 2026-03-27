@@ -30,7 +30,7 @@
 
 @media (max-width: 800px) {
   .topLinks {
-    font-size: 0.5rem;
+    font-size: 0.45rem;
     justify-content: center;
     text-align: center;
     padding: 6px var(--gutter);
