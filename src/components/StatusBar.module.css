@@ -3,8 +3,10 @@
   font-family: var(--font-body);
   letter-spacing: 0.02em;
   transition: background-color 0.2s ease, color 0.2s ease;
-  position: sticky;
+  position: fixed;
   bottom: 0;
+  left: 0;
+  width: 100%;
   z-index: 100;
 }
 
