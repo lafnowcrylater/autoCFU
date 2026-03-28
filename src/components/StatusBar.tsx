@@ -8,8 +8,8 @@ interface Props {
 
 const STATUS_MESSAGES: Record<AppState, string> = {
   idle: 'Ready — upload a plate image to begin',
-  uploading: 'Uploading image…',
-  analyzing: 'Running colony detection…',
+  uploading: 'Uploading image...',
+  analyzing: 'Processing...',
   done: 'Analysis complete',
   error: 'An error occurred',
 };

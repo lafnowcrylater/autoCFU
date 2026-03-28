@@ -78,7 +78,7 @@ export default function App() {
                 onClick={handleAnalyze}
                 disabled={!file || isAnalyzing}
               >
-                {isAnalyzing ? 'Analyzing…' : 'Start Analysis'}
+                {isAnalyzing ? 'Processing...' : 'Start Analysis'}
               </button>
             </div>
 
