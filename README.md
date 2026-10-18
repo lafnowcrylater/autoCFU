@@ -8,10 +8,6 @@ A web application for counting *S. aureus* bacterial colonies from agar plate ph
 2. **Count**: Click "Start Colony Count" to begin the AI analysis.
 3. **Review**: View detected colonies on the annotated image and the total CFU count in the results panel.
 
-## Development
-
-This is the React frontend for the CFU Counter suite.
-
 ### Tech Stack
 - React 18
 - Vite
