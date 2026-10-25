@@ -1,23 +1,79 @@
-# CFU Counter
+# CFU Counter Frontend
 
-A web application for counting *S. aureus* bacterial colonies from agar plate photographs.
+A web application for counting *Staphylococcus aureus* bacterial colonies from agar plate photographs using deep learning.
 
-## Usage
+## Features
 
-1. **Upload**: Drag and drop an image (PNG, JPG, TIFF) into the "Plate Image" area.
-2. **Count**: Click "Start Colony Count" to begin the AI analysis.
-3. **Review**: View detected colonies on the annotated image and the total CFU count in the results panel.
+- **Agar Plate Upload**: Drag-and-drop or file browser upload supporting PNG, JPG, and TIFF formats.
+- **AI Colony Enumeration**: Automated colony counting and visualization via backend deep learning service.
+- **Inspection Metrics**: Displays total colony-forming units (CFU), model confidence, and inference processing time.
 
-### Tech Stack
-- React 18
-- Vite
-- TypeScript
-- CSS Modules
+## Tech Stack
 
-### Quick Start
+- **Framework**: React 19
+- **Bundler & Tooling**: Vite 8 with React Compiler
+- **Language**: TypeScript
+- **Styling**: CSS Modules
+- **HTTP Client**: Axios
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v18+ recommended)
+- npm or compatible package manager
+
+### Environment Setup
+
+Copy the example environment configuration:
+
+```bash
+cp .env.example .env
+```
+
+Set the backend API URL in `.env`:
+
+```env
+VITE_BASE_URL=http://localhost:8000
+```
+
+### Installation
+
 ```bash
 npm install
+```
+
+### Development
+
+Start the Vite development server:
+
+```bash
 npm run dev
 ```
 
-For back-end setup and full system instructions, refer to the [Main Project README](../README.md).
+### Production Build
+
+Check types and build the production bundle:
+
+```bash
+npm run build
+```
+
+Preview the production build locally:
+
+```bash
+npm run preview
+```
+
+### Code Quality & Linting
+
+```bash
+# Run ESLint
+npm run lint
+
+# Automatically fix linting issues
+npm run lint:fix
+
+# Run TypeScript type check
+npm run typecheck
+```

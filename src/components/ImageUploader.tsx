@@ -1,5 +1,5 @@
-import { useRef, useState } from 'react';
-import type { DragEvent, ChangeEvent } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import type { ChangeEvent, DragEvent, KeyboardEvent } from 'react';
 import styles from './ImageUploader.module.css';
 
 interface Props {
@@ -7,11 +7,19 @@ interface Props {
   disabled?: boolean;
 }
 
-export function ImageUploader({ onFileSelect, disabled }: Props) {
+export function ImageUploader({ onFileSelect, disabled = false }: Props) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [dragging, setDragging] = useState(false);
   const [preview, setPreview] = useState<string | null>(null);
   const [fileName, setFileName] = useState<string | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (preview) {
+        URL.revokeObjectURL(preview);
+      }
+    };
+  }, [preview]);
 
   function handleFile(file: File) {
     if (!file.type.startsWith('image/')) return;
@@ -28,15 +36,33 @@ export function ImageUploader({ onFileSelect, disabled }: Props) {
   function onDrop(e: DragEvent<HTMLDivElement>) {
     e.preventDefault();
     setDragging(false);
+    if (disabled) return;
+
     const file = e.dataTransfer.files?.[0];
     if (file) handleFile(file);
   }
 
+  function onKeyDown(e: KeyboardEvent<HTMLDivElement>) {
+    if (disabled) return;
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      inputRef.current?.click();
+    }
+  }
+
   return (
     <div
+      role="button"
+      tabIndex={disabled ? -1 : 0}
+      aria-label="Upload plate image"
+      aria-disabled={disabled}
       className={`${styles.dropzone} ${dragging ? styles.dragging : ''} ${disabled ? styles.disabled : ''}`}
       onClick={() => !disabled && inputRef.current?.click()}
-      onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
+      onKeyDown={onKeyDown}
+      onDragOver={(e) => {
+        e.preventDefault();
+        if (!disabled) setDragging(true);
+      }}
       onDragLeave={() => setDragging(false)}
       onDrop={onDrop}
     >
@@ -56,7 +82,7 @@ export function ImageUploader({ onFileSelect, disabled }: Props) {
         </div>
       ) : (
         <div className={styles.placeholder}>
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
             <rect x="3" y="3" width="18" height="18" rx="2" />
             <circle cx="8.5" cy="8.5" r="1.5" />
             <path d="M21 15l-5-5L5 21" />

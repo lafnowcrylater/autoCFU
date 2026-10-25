@@ -16,7 +16,7 @@ const STATUS_MESSAGES: Record<AppState, string> = {
 
 export function StatusBar({ state, error }: Props) {
   return (
-    <footer className={`${styles.bar} ${styles[state]}`}>
+    <footer className={`${styles.bar} ${styles[state]}`} role="status" aria-live="polite">
       <div className={styles.container}>
         <span className={styles.message}>
           {state === 'error' && error ? error : STATUS_MESSAGES[state]}

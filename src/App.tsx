@@ -12,6 +12,13 @@ export default function App() {
   const [state, setState] = useState<AppState>('idle');
   const [error, setError] = useState<string | undefined>();
 
+  function handleFileSelect(selectedFile: File) {
+    setFile(selectedFile);
+    if (result) setResult(null);
+    if (error) setError(undefined);
+    if (state !== 'idle') setState('idle');
+  }
+
   async function handleAnalyze() {
     if (!file) return;
     setState('analyzing');
@@ -37,8 +44,6 @@ export default function App() {
       <header className={styles.topbar}>
         <nav className={styles.topLinks}>
           <span className={styles.topText}>Automated Staphylococcus aureus Colony Counter</span>
-          {/* <span className={styles.divider}>|</span>
-          <span>Staphylococcus aureus</span> */}
         </nav>
       </header>
 
@@ -47,10 +52,6 @@ export default function App() {
         <div className={styles.container}>
           <div className={styles.brandRow}>
             <h1 className={styles.brand}>Auto<span>CFU</span></h1>
-            {/* <div className={styles.brandMeta}>
-              <span className={styles.tag}>RESEARCH TOOL</span>
-              <span className={styles.tag}>Staphylococcus aureus</span>
-            </div> */}
           </div>
         </div>
       </div>
@@ -67,13 +68,10 @@ export default function App() {
                 <h2 className={styles.sectionTitle}>Plate Image</h2>
               </div>
 
-              {/* <p className={styles.intro}>
-                Upload a <em>S.aureus</em> plate photo, then click start.
-              </p> */}
-
-              <ImageUploader onFileSelect={setFile} disabled={isAnalyzing} />
+              <ImageUploader onFileSelect={handleFileSelect} disabled={isAnalyzing} />
 
               <button
+                type="button"
                 className={styles.analyzeBtn}
                 onClick={handleAnalyze}
                 disabled={!file || isAnalyzing}

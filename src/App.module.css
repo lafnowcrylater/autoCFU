@@ -38,8 +38,8 @@
   }
 }
 
-.divider {
-  opacity: 0.4;
+.topText {
+  letter-spacing: 0.06em;
 }
 
 /* ── Site header ── */
@@ -76,22 +76,6 @@
   color: var(--text-primary);
 }
 
-.brandMeta {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.tag {
-  font-family: var(--font-body);
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
-  font-weight: 600;
-  padding: 3px 8px;
-  border: 1px solid var(--border-strong);
-  color: var(--text-muted);
-}
-
 /* ── Main ── */
 .main {
   flex: 1;
@@ -110,6 +94,12 @@
     grid-template-columns: 1fr 1fr;
     gap: 48px;
   }
+}
+
+.leftCol,
+.rightCol {
+  display: flex;
+  flex-direction: column;
 }
 
 /* ── Section headers ── */
@@ -137,14 +127,6 @@
   font-weight: 700;
   margin: 0;
   color: var(--text-primary);
-}
-
-.intro {
-  font-family: var(--font-body);
-  font-size: 0.88rem;
-  line-height: 1.65;
-  color: var(--text-secondary);
-  margin: 0 0 20px;
 }
 
 /* ── Analyze button ── */
@@ -184,5 +166,3 @@
   font-family: var(--font-body);
   font-size: 0.85rem;
 }
-
-/* ── End ── */
